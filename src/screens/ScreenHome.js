@@ -1,62 +1,37 @@
-import React, {useState} from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import {Text, StyleSheet, View, Button} from 'react-native';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react'
+import {SafeAreaView} from 'react-native-safe-area-context'
+import {StyleSheet} from 'react-native';
+
+import {TitleTop} from '../components/home/TitleTop'
+import {Task} from '../components/home/Task'
+import {InputTask} from '../components/home/InputTask'
 
 
 export const ScreenHome = () => {
-    //const [count, setCount] = useState()
-    // const handleClickMinus = () => {
-    //     const res = count - 1
-    //     setCount(res)
-    // }
-    // const handleClickPlus = () => {
-    //     const res = count + 1
-    //     setCount(res)
-    // }
-    const dispatch = useDispatch()
-    const handleClickPl = () => {
-        dispatch({type: 'INCREMENT_COUNTER'})
-    }
-    const handleClickMin = () => {
-        dispatch({type: 'DECREMENT_COUNTER'})
-    }
+    const [task, setTask] = useState()
 
-    const count = useSelector(state => state.counter)
-
+    const handleAddTask = () => {
+        
+    }
     return (
        <SafeAreaView style={styles.container}>
-           <Text>HOME</Text> 
-           <View style={styles.countWrapper}>
-            <Button style={styles.countButton} title="Minus" onPress={handleClickMin}/>
-            <Text style={styles.countButton}>{count}</Text>
-            <Button style={styles.countButton} title="Plus" onPress={handleClickPl}/>
-           </View>
+           <TitleTop />
+           <Task titleTask={'Task1'} countTask={'1'}/>
+           <Task titleTask={'Task2'} countTask={'2'}/>
+           <Task titleTask={'Task3'} countTask={'3'}/>
+           <Task titleTask={'Task4'} countTask={'4'}/>
+           <InputTask />
        </SafeAreaView>     
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: 30
-    },
-    countWrapper: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'row',
-        marginTop: 30,
-        fontSize: 30
-    },
-    countButton: {
-        borderWidth: 3,
-        borderColor: 'blue',
-        borderRadius: 5,
-        marginRight: 20,
-        marginLeft: 20,
-        width: 80,
-        textAlign: 'center'
+        flex: 1, 
+        backgroundColor: '#F0F0F0',
+        paddingTop: 50,
+        paddingLeft: 30,
+        paddingRight: 30,
+        paddingBottom: 50,
     }
 })
