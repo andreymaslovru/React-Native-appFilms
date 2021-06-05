@@ -4,9 +4,15 @@ import {StyleSheet} from 'react-native';
 
 import {TitleTop} from '../components/home/TitleTop'
 import {Task} from '../components/home/Task'
+import {InputTask} from '../components/home/InputTask'
 
 
 export const ScreenHome = () => {
+    const [task, setTask] = useState()
+
+    const handleAddTask = () => {
+        
+    }
     return (
        <SafeAreaView style={styles.container}>
            <TitleTop />
@@ -14,6 +20,7 @@ export const ScreenHome = () => {
            <Task titleTask={'Task2'} countTask={'2'}/>
            <Task titleTask={'Task3'} countTask={'3'}/>
            <Task titleTask={'Task4'} countTask={'4'}/>
+           <InputTask />
        </SafeAreaView>     
     )
 }
