@@ -22,21 +22,22 @@ export const GenreTop = () => {
 
 const styles = StyleSheet.create({
     genreContainer: { 
-        paddingTop: 50
+        paddingTop: 50,
+        paddingLeft: 32,
     },
     genreContainer__item: {
         marginRight: 10, 
         borderWidth: 1.5,
         borderColor: '#12153D',
-        borderRadius: 15,
+        borderRadius: 22,
         fontStyle: 'normal',
-        fontSize: 15,
-        lineHeight: 12,
+        fontSize: 20,
+        lineHeight: 24,
         color: '#434670',
         paddingTop: 8,
         paddingBottom: 8,
-        paddingRight: 10,
-        paddingLeft: 10,
+        paddingRight: 24,
+        paddingLeft: 24,
         alignItems: 'center',
         justifyContent: 'center'
     }

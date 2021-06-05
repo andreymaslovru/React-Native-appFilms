@@ -1,22 +1,27 @@
 import React from 'react'
-import {Text, ScrollView} from 'react-native'
+import {Text, ScrollView, StyleSheet} from 'react-native'
 
 export const NavbarTop = () => {
     return (
-        <ScrollView horizontal={true}>
-            <Text> textInComponent1 </Text>
-            <Text> textInComponent2 </Text>
-            <Text> textInComponent3 </Text>
-            <Text> textInComponent4 </Text>
-            <Text> textInComponent5 </Text>
-            <Text> textInComponent6 </Text>
-            <Text> textInComponent7 </Text>
-            <Text> textInComponent8 </Text>
-            <Text> textInComponent9 </Text>
-            <Text> textInComponent10 </Text>
+        <ScrollView showsHorizontalScrollIndicator={false} horizontal={true} style={styles.navbar}>
+            <Text style={styles.navbar__item}> InTheater </Text>
+            <Text style={styles.navbar__item}> Box Office </Text>
+            <Text style={styles.navbar__item}> Comming Soon </Text>
         </ScrollView>
     )
 }
+
+const styles = StyleSheet.create({
+    navbar: {
+        paddingTop: 48,
+        paddingLeft: 32
+    },
+    navbar__item: {
+        fontSize: 32,
+        lineHeight: 39,
+        color: '#12153D'
+    },
+})
 
         
     
