@@ -3,7 +3,7 @@ import {TouchableOpacity} from 'react-native'
 import {View} from 'react-native'
 import {Text, StyleSheet} from 'react-native'
 
-export const Task = (props) => {
+export const Task = (props, task, setTask) => {
     return (
         <View style={styles.taskContainer}>
             <View style={styles.taskLeftWrapper}>

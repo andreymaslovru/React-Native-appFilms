@@ -7,16 +7,16 @@ import {createStore} from 'redux'
 
 
 const initialState = {
-  counter: 0,
+  tasks: [],
 }
 
 const reducer = (state = initialState, action) => {
   switch(action.type) {
-    case "INCREMENT_COUNTER":
-      return {...state, counter: state.counter + 1}
+    case "ADD_TASK":
+      return {...state, tasks: tasks.push(action.state)}
 
-    case "DECREMENT_COUNTER":
-      return {...state, counter: state.counter - 1}
+    case "REMOVE_TASK":
+      return {...state, tasks: tasks.unshift(action.state)}
 
     default: 
       return state

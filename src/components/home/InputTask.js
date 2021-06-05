@@ -3,7 +3,11 @@ import { TouchableOpacity } from 'react-native'
 import {Platform} from 'react-native'
 import {View, StyleSheet, KeyboardAvoidingView, TextInput, Text} from 'react-native'
 
-export const InputTask = () => {
+export const InputTask = (task, setTask) => {
+        const handleAddTask = () => {
+            console.log('task added');
+            console.log('task', task);
+        }
         return (
             <View>
                 <KeyboardAvoidingView
@@ -12,7 +16,7 @@ export const InputTask = () => {
                         <TextInput style={styles.inputTask} placeholder={'Type a task'} onChangeText={value => setTask(value)}/>
                         <TouchableOpacity>
                             <View style={styles.addWrapper}>
-                                <Text style={styles.addText}>+</Text>
+                                <Text style={styles.addText} onPress={handleAddTask}>+</Text>
                             </View>
                         </TouchableOpacity>
                 </KeyboardAvoidingView>

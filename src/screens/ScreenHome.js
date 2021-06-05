@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {SafeAreaView} from 'react-native-safe-area-context'
 import {StyleSheet} from 'react-native';
 
@@ -8,19 +8,16 @@ import {InputTask} from '../components/home/InputTask'
 
 
 export const ScreenHome = () => {
-    const [task, setTask] = useState()
+    const [task, setTask] = useState([])
 
-    const handleAddTask = () => {
-        
-    }
     return (
        <SafeAreaView style={styles.container}>
            <TitleTop />
-           <Task titleTask={'Task1'} countTask={'1'}/>
-           <Task titleTask={'Task2'} countTask={'2'}/>
-           <Task titleTask={'Task3'} countTask={'3'}/>
-           <Task titleTask={'Task4'} countTask={'4'}/>
-           <InputTask />
+           <Task item={task} setItem={setTask} titleTask={'Task1'} countTask={'1'}/>
+           <Task item={task} setItem={setTask} titleTask={'Task2'} countTask={'2'}/>
+           <Task item={task} setItem={setTask} titleTask={'Task3'} countTask={'3'}/>
+           <Task item={task} setItem={setTask} titleTask={'Task4'} countTask={'4'}/>
+           <InputTask item={task} setItem={setTask}/>
        </SafeAreaView>     
     )
 }
