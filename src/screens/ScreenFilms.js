@@ -1,8 +1,6 @@
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import {Text, FlatList, View, Image} from 'react-native';
-import {useState, useEffect} from 'react';
-import { useNavigation } from '@react-navigation/native';
 
 export const ScreenFilms = () => {
     // getData = async () => {
