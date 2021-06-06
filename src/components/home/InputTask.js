@@ -1,27 +1,37 @@
 import React, {useState} from 'react'
 import { TouchableOpacity } from 'react-native'
 import {Platform} from 'react-native'
+import {useDispatch, useSelector} from 'react-redux'
 import {View, StyleSheet, KeyboardAvoidingView, TextInput, Text, ScrollView} from 'react-native'
 import {Task} from './Task'
+import {actionCreaterAddTask, actionCreaterRemoveTask} from '../../redux/reducer';
 
 export const InputTask = (props) => {
+
+
+    const dispatch = useDispatch()
+    const tasks = useSelector(state => state.tasks)
+    const count = useSelector(state => state.count)
+
+
     const [task, setTask] = useState()
-    const [itemsTask, setItemsTask] = useState([])
     const click = () => {
-        setItemsTask([...itemsTask, task]);
+        console.log('task', tasks);
+        dispatch(actionCreaterAddTask(task))
+        console.log('count', count);
     }
-    const completeTask = (index) => {
-        const itemsTaskNew = [...itemsTask];
-        itemsTaskNew.splice(index, 1);
-        setItemsTask(itemsTaskNew);
+    const completeTask = (index, item) => {
+        dispatch(actionCreaterRemoveTask(index))
+        console.log('item', item);
+        console.log('index', index);
     }
         return (
             <View style={styles.innerTask}>
-                <ScrollView style={styles.scrollTasks}>
+                <ScrollView style={styles.scrollTasks} showsVerticalScrollIndicator={false}>
                     {
-                        itemsTask.map((item, index) => {
+                        tasks.map((item, index) => {
                             return (
-                                <TouchableOpacity key={index} onPress={() => completeTask(index)}>
+                                <TouchableOpacity key={index} onPress={() => completeTask(index, item)}>
                                     <Task index={index} titleTask={item}/>
                                 </TouchableOpacity>
                             )
@@ -32,9 +42,9 @@ export const InputTask = (props) => {
                     behavior={Platform.OS === "ios" ? "padding" : "weight"}
                     style={styles.keyboardTask}>
                         <TextInput style={styles.inputTask} placeholder={'Type a task'} onChangeText={(value) => setTask(value)}/>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={click}>
                             <View style={styles.addWrapper}>
-                                <Text style={styles.addText} onPress={click}>+</Text>
+                                <Text style={styles.addText}>+</Text>
                             </View>
                         </TouchableOpacity>
                 </KeyboardAvoidingView>
@@ -45,7 +55,8 @@ export const InputTask = (props) => {
 const styles = StyleSheet.create({
     innerTask: {
         flexDirection: 'column',
-        alignContent: 'flex-end',
+        flex: 1,
+        justifyContent: 'flex-end',
     },
     scrollTasks: {
         maxHeight: '90%'
