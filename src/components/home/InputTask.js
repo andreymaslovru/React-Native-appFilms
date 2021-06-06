@@ -8,9 +8,7 @@ export const InputTask = (props) => {
     const [task, setTask] = useState()
     const [itemsTask, setItemsTask] = useState([])
     const click = () => {
-        console.log(task);
         setItemsTask([...itemsTask, task]);
-        console.log(itemsTask);
     }
     const completeTask = (index) => {
         const itemsTaskNew = [...itemsTask];

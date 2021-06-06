@@ -1,12 +1,17 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {SafeAreaView} from 'react-native-safe-area-context'
-import {StyleSheet, ScrollView} from 'react-native';
+import {StyleSheet} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux'
 
 import {TitleTop} from '../components/home/TitleTop'
 import {InputTask} from '../components/home/InputTask'
 
 
 export const ScreenHome = () => {
+
+    const dispatch = useDispatch()
+    const counter = useSelector((state) => state.counter)
+    console.log('count', counter);
     return (
        <SafeAreaView style={styles.container}>
             <TitleTop />
