@@ -9,11 +9,8 @@ import {InputTask} from '../components/home/InputTask'
 export const ScreenHome = () => {
     return (
        <SafeAreaView style={styles.container}>
-           <ScrollView>
             <TitleTop />
             <InputTask />
-           </ScrollView>
-           
        </SafeAreaView>     
     )
 }
@@ -22,7 +19,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1, 
         justifyContent: 'space-between',
-        backgroundColor: '#F0F0F0',
+        backgroundColor: '#202329',
         paddingTop: 50,
         paddingLeft: 30,
         paddingRight: 30,

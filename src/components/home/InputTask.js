@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { TouchableOpacity } from 'react-native'
 import {Platform} from 'react-native'
-import {View, StyleSheet, KeyboardAvoidingView, TextInput, Text} from 'react-native'
+import {View, StyleSheet, KeyboardAvoidingView, TextInput, Text, ScrollView} from 'react-native'
 import {Task} from './Task'
 
 export const InputTask = (props) => {
@@ -13,18 +13,23 @@ export const InputTask = (props) => {
         console.log(itemsTask);
     }
     const completeTask = (index) => {
-        console.log('ggg');
-        console.log(index);
+        const itemsTaskNew = [...itemsTask];
+        itemsTaskNew.splice(index, 1);
+        setItemsTask(itemsTaskNew);
     }
         return (
-            <View>
-                <View>
+            <View style={styles.innerTask}>
+                <ScrollView style={styles.scrollTasks}>
                     {
                         itemsTask.map((item, index) => {
-                            return <Task key={index} index={index} completeTask={completeTask} titleTask={item}/>
+                            return (
+                                <TouchableOpacity key={index} onPress={() => completeTask(index)}>
+                                    <Task index={index} titleTask={item}/>
+                                </TouchableOpacity>
+                            )
                         })
                     }
-                </View>
+                </ScrollView>
                 <KeyboardAvoidingView
                     behavior={Platform.OS === "ios" ? "padding" : "weight"}
                     style={styles.keyboardTask}>
@@ -40,17 +45,26 @@ export const InputTask = (props) => {
 }
 
 const styles = StyleSheet.create({
+    innerTask: {
+        flexDirection: 'column',
+        alignContent: 'flex-end',
+    },
+    scrollTasks: {
+        maxHeight: '90%'
+    },
     keyboardTask: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
+        paddingTop: 10
     },
     inputTask: {
-        width: 100,
-        height: 20,
+        minWidth: 100,
+        height: 25,
         borderWidth: 1,
         borderRadius: 50,
-        borderColor: '#333',
+        borderColor: '#54b2cd',
+        color: '#fff',
         width: 220,
         height: 40,
         paddingRight: 20,
@@ -60,7 +74,7 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50,
         borderRadius: 50,
-        backgroundColor: '#333',
+        backgroundColor: '#54b2cd',
         alignItems: 'center',
         justifyContent: 'center'
     },
