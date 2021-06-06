@@ -4,6 +4,7 @@ import {View} from 'react-native'
 import {Text, StyleSheet} from 'react-native'
 
 export const Task = (props) => {
+    
     return (
         <View style={styles.taskContainer}>
             <View style={styles.taskLeftWrapper}>
@@ -17,7 +18,7 @@ export const Task = (props) => {
 
 const styles = StyleSheet.create({
     taskContainer: { 
-        height: 50,
+        minHeight: 50,
         backgroundColor: '#333',
         borderRadius: 15,
         flexDirection: 'row',
@@ -25,11 +26,14 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         marginBottom: 20,
         paddingLeft: 20,
-        paddingRight: 20
+        paddingRight: 20,
+        paddingBottom: 10,
+        paddingTop: 10
     },
     taskLeftWrapper: {
         flexDirection: 'row',
         alignItems: 'center',
+        maxWidth: 200
     },
     titleTask: {
         color: '#fff'
@@ -37,7 +41,7 @@ const styles = StyleSheet.create({
     square: {
         width: 20,
         height: 20,
-        backgroundColor: '#fff',
+        backgroundColor: '#54b2cd',
         marginRight: 20,
         borderRadius: 5
     },
@@ -45,6 +49,6 @@ const styles = StyleSheet.create({
         height: 15,
         width: 15,
         borderRadius: 15,
-        backgroundColor: '#fff'
+        backgroundColor: '#54b2cd'
     }
 })

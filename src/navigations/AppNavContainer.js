@@ -3,7 +3,7 @@ import React from 'react';
 import {ScreenHome} from '../screens/ScreenHome'
 import {ScreenFilms} from '../screens/ScreenFilms'
 import {ScreenLikeFilms} from '../screens/ScreenLikeFilms';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import {SvgComponentHome} from '../assest/svg/SvgComponentHome';
 

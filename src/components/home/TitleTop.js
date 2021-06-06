@@ -11,7 +11,7 @@ export const TitleTop = () => {
 
 const styles = StyleSheet.create({
     titleApp: {
-        color: '#333',
+        color: '#54b2cd',
         fontSize: 25,
         fontWeight: '700',
         marginBottom: 20
