@@ -11,19 +11,17 @@ export const InputTask = (props) => {
 
     const dispatch = useDispatch()
     const tasks = useSelector(state => state.tasks)
-    const count = useSelector(state => state.count)
 
 
     const [task, setTask] = useState()
+
     const click = () => {
-        console.log('task', tasks);
         dispatch(actionCreaterAddTask(task))
-        console.log('count', count);
+        setTask('')
     }
+
     const completeTask = (index, item) => {
         dispatch(actionCreaterRemoveTask(index))
-        console.log('item', item);
-        console.log('index', index);
     }
         return (
             <View style={styles.innerTask}>
