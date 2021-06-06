@@ -8,15 +8,16 @@ import {createStore} from 'redux'
 
 const initialState = {
   tasks: [],
+  query: 'aa',
 }
 
 const reducer = (state = initialState, action) => {
   switch(action.type) {
-    case "ADD_TASK":
-      return {...state, tasks: tasks.push(action.state)}
+    case "RECEIVE_QUERY":
+      return {...state, query: action.query}
 
-    case "REMOVE_TASK":
-      return {...state, tasks: tasks.unshift(action.state)}
+    // case "REMOVE_TASK":
+    //   return {...state, tasks: tasks.unshift(action.state)}
 
     default: 
       return state

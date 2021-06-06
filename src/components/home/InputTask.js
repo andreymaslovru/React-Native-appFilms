@@ -1,22 +1,37 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { TouchableOpacity } from 'react-native'
 import {Platform} from 'react-native'
 import {View, StyleSheet, KeyboardAvoidingView, TextInput, Text} from 'react-native'
+import {Task} from './Task'
 
-export const InputTask = (task, setTask) => {
-        const handleAddTask = () => {
-            console.log('task added');
-            console.log('task', task);
-        }
+export const InputTask = (props) => {
+    const [task, setTask] = useState()
+    const [itemsTask, setItemsTask] = useState([])
+    const click = () => {
+        console.log(task);
+        setItemsTask([...itemsTask, task]);
+        console.log(itemsTask);
+    }
+    const completeTask = (index) => {
+        console.log('ggg');
+        console.log(index);
+    }
         return (
             <View>
+                <View>
+                    {
+                        itemsTask.map((item, index) => {
+                            return <Task key={index} index={index} completeTask={completeTask} titleTask={item}/>
+                        })
+                    }
+                </View>
                 <KeyboardAvoidingView
                     behavior={Platform.OS === "ios" ? "padding" : "weight"}
                     style={styles.keyboardTask}>
-                        <TextInput style={styles.inputTask} placeholder={'Type a task'} onChangeText={value => setTask(value)}/>
+                        <TextInput style={styles.inputTask} placeholder={'Type a task'} onChangeText={(value) => setTask(value)}/>
                         <TouchableOpacity>
                             <View style={styles.addWrapper}>
-                                <Text style={styles.addText} onPress={handleAddTask}>+</Text>
+                                <Text style={styles.addText} onPress={click}>+</Text>
                             </View>
                         </TouchableOpacity>
                 </KeyboardAvoidingView>
@@ -28,7 +43,7 @@ const styles = StyleSheet.create({
     keyboardTask: {
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
     },
     inputTask: {
         width: 100,

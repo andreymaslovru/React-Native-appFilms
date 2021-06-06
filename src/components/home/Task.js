@@ -3,9 +3,12 @@ import {TouchableOpacity} from 'react-native'
 import {View} from 'react-native'
 import {Text, StyleSheet} from 'react-native'
 
-export const Task = (props, task, setTask) => {
+export const Task = (props) => {
+    const completeTask = (index) => {
+        console.log(index);
+    }
     return (
-        <View style={styles.taskContainer}>
+        <View style={styles.taskContainer} onPress={completeTask}>
             <View style={styles.taskLeftWrapper}>
                 <TouchableOpacity style={styles.square}></TouchableOpacity>
                 <Text style={styles.titleTask}>{props.titleTask}</Text>
